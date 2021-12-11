@@ -40,7 +40,7 @@ class Extra_fq(nn.Module):
                 for j in range(t_1[1] - i):
                     low_f[i, j] = 1
             for i in range(t_2[0]):
-                for j in range(t_2[1]):
+                for j in range(t_2[1]-i):
                     high_f[i, j] = 0
             mid_f = mid_f - low_f
             mid_f = mid_f - high_f
