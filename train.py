@@ -23,7 +23,8 @@ def main(args):
 
     tb_writer = SummaryWriter()
 
-    train_images_path, train_images_label, val_images_path, val_images_label = read_split_data(args.data_path)
+    train_images_path, train_images_label, _, _ = read_split_data(root='fakeface/train')
+    val_images_path, val_images_label, _, _ = read_split_data(root='fakeface/test')
 
     data_transform = {
         "train": transforms.Compose([transforms.RandomResizedCrop(224),
@@ -111,8 +112,10 @@ if __name__ == '__main__':
 
 
 
-    parser.add_argument('--data-path', type=str,
-                        default=r"C:\Users\satomi ishihara\za\desktop\fakeface\train_ji")
+    # parser.add_argument('--data-path', type=str,
+    #                     default=r"fakeface/train")
+    # parser.add_argument('--data-test-path', type=str,
+    #                     default=r"fakeface/test")
     parser.add_argument('--model-name', default='', help='create model name')
 
 
